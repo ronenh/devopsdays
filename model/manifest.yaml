@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=manifest.json
+---
+
+# model
+model:
+  version: 3
+
+types:
+  #  user represents a user that can be granted role(s)
+  user:
+    relations:
+      manager: user
+
+  identity:
+    relations:
+      identifier: user
+
+  group:
+    relations:
+      member: user | group#member
