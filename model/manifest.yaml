@@ -1,6 +1,3 @@
-# yaml-language-server: $schema=manifest.json
----
-
 # model
 model:
   version: 3
