@@ -1,0 +1,16 @@
+{
+    "assertions": [
+        {"check_relation":{"object":{"type":"user","key":"beth@the-smiths.com"},"relation":{"name":"manager", "object_type": "user"},"subject":{"type":"user","key":"jerry@the-smiths.com"}},"expected":true},
+        {"check_relation":{"object":{"type":"user","key":"rick@the-citadel.com"},"relation":{"name":"manager", "object_type": "user"},"subject":{"type":"user","key":"morty@the-citadel.com"}},"expected":true},
+        {"check_relation":{"object":{"type":"user","key":"rick@the-citadel.com"},"relation":{"name":"manager", "object_type": "user"},"subject":{"type":"user","key":"summer@the-smiths.com"}},"expected":true},
+
+        {"check_relation":{"object":{"type":"user","key":"jerry@the-smiths.com"},"relation":{"name":"manager", "object_type": "user"},"subject":{"type":"user","key":"beth@the-smiths.com"}},"expected":false},
+        {"check_relation":{"object":{"type":"user","key":"jerry@the-smiths.com"},"relation":{"name":"manager", "object_type": "user"},"subject":{"type":"user","key":"rick@the-citadel.com"}},"expected":false},
+
+        {"check_relation":{"object":{"type":"group","key":"admin"},"relation":{"name":"member", "object_type": "group"},"subject":{"type":"user","key":"rick@the-citadel.com"}},"expected":true},
+
+        {"check_relation":{"object":{"type":"todo","key":"morty_todo_1"},"relation":{"name":"owner", "object_type": "todo"},"subject":{"type":"user","key":"morty@the-citadel.com"}},"expected":true},
+
+        {"check_permission": {"object": {"type": "todo", "key": "morty_todo_1"}, "permission": {"name": "delete"}, "subject": {"type": "user", "key": "morty@the-citadel.com"}}, "expected": true}
+    ]
+}

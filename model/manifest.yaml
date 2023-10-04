@@ -18,3 +18,16 @@ types:
   group:
     relations:
       member: user | group#member
+
+  todo:
+    relations:
+      owner:  user
+      viewer: user
+      editor: user
+
+    permissions:
+      view:   owner | editor | viewer
+      edit:   owner | editor
+      delete: owner
+
+

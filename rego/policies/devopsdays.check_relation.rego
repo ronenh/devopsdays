@@ -1,4 +1,4 @@
-package todoApp.check_relation
+package devopsdays.check_relation
 
 # default to a closed system (deny by default)
 default allowed = false

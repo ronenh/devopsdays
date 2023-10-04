@@ -1,4 +1,4 @@
-package todoApp.check_permission
+package devopsdays.check_permission
 
 # default to a closed system (deny by default)
 default allowed = false
@@ -12,8 +12,8 @@ default allowed = false
 allowed {
   ds.check_permission({
     "object": {
-      "key": input.resource.object_key,
-      "type": input.resource.object_type
+      "key": input.resource.key,
+      "type": input.resource.type
     },
     "permission": {
       "name": input.resource.permission

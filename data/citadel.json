@@ -164,6 +164,11 @@
                     "provider": "local",
                     "verified": true
                 }
+            },
+            {
+                "type": "todo",
+                "key": "morty_todo_1",
+                "properties": {}
             }
         ]
     },
@@ -376,6 +381,17 @@
                 "object": {
                     "type": "group",
                     "key": "viewer"
+                }
+            },
+            {
+                "subject": {
+                    "type": "user",
+                    "key": "morty@the-citadel.com"
+                },
+                "relation": "owner",
+                "object": {
+                    "type": "todo",
+                    "key": "morty_todo_1"
                 }
             }
         ]

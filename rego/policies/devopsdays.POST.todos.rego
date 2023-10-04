@@ -1,8 +1,8 @@
-package todoApp.POST.todos
+package devopsdays.POST.todos
 
 import input.user
 import future.keywords.in
-import data.todoApp.common.is_member_of
+import data.devopsdays.common.is_member_of
 
 default allowed = false
 

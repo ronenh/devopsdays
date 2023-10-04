@@ -1,7 +1,7 @@
 {
   "roots": [
     "policies",
-    "todoApp"
+    "devopsdays"
   ],
   "metadata": {
     "required_builtins": {
