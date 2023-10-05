@@ -42,7 +42,7 @@ install:
 configure: grpc-health-probe-bin
 	@echo -e "${ATTN_COLOR}==> $@ ${NO_COLOR}"
 	@${TOPAZ} stop
-	@${TOPAZ} configure --policy-name ${POLICY_NAME} --resource=${POLICY_IMAGE} -d
+	${TOPAZ} configure --policy-name ${POLICY_NAME} --resource=${POLICY_IMAGE} -d
 	@${TOPAZ} start --container-name=${CONTAINER_NAME} --container-version=${CONTAINER_VERSION}
 	@grpc-health-probe -addr=localhost:8484 -connect-timeout=30s -rpc-timeout=30s
 
@@ -50,19 +50,19 @@ configure: grpc-health-probe-bin
 configure-local: grpc-health-probe-bin
 	@echo -e "${ATTN_COLOR}==> $@ ${NO_COLOR}"
 	@${TOPAZ} stop
-	@${TOPAZ} configure --policy-name ${POLICY_NAME}  --local-policy-image ${POLICY_IMAGE} -d
+	${TOPAZ} configure --policy-name ${POLICY_NAME}  --local-policy-image ${POLICY_IMAGE} -d
 	@${TOPAZ} start --container-name=${CONTAINER_NAME} --container-version=${CONTAINER_VERSION}
 	@grpc-health-probe -addr=localhost:8484 -connect-timeout=30s -rpc-timeout=30s
 
 .PHONY: manifest
 manifest:
 	@echo -e "${ATTN_COLOR}==> $@ ${NO_COLOR}"
-	@${TOPAZ} load ./model/manifest.yaml --insecure --no-check
+	${TOPAZ} load ./model/manifest.yaml -i
 
 .PHONY: data
 data:
 	@echo -e "${ATTN_COLOR}==> $@ ${NO_COLOR}"
-	@cat ./data/citadel.json | ds-load publish -i
+	cat ./data/citadel.json | ds-load publish -i
 
 .PHONY: test
 test:
@@ -86,12 +86,12 @@ clean: grpc-health-probe-bin
 .PHONY: build
 build:
 	@echo -e "${ATTN_COLOR}==> $@ ${NO_COLOR}"
-	@policy build rego --tag ${POLICY_HOST}/${POLICY_ORG}/${POLICY_REPO}:${POLICY_TAG}
+	policy build rego --tag ${POLICY_HOST}/${POLICY_ORG}/${POLICY_REPO}:${POLICY_TAG}
 
 .PHONY: push
 push:
 	@echo -e "${ATTN_COLOR}==> $@ ${NO_COLOR}"
-	@policy push ${POLICY_HOST}/${POLICY_ORG}/${POLICY_REPO}:${POLICY_TAG}
+	policy push ${POLICY_HOST}/${POLICY_ORG}/${POLICY_REPO}:${POLICY_TAG}
 
 .PHONY: restart
 restart: grpc-health-probe-bin

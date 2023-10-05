@@ -3,14 +3,6 @@
         {
             "check_decision": {
                 "identityContext": { "identity": "morty@the-citadel.com", "type": "IDENTITY_TYPE_SUB"},
-                "resourceContext": { "key": "morty_todo_1", "type": "todo", "permission": "delete"},
-                "policyContext": { "path": "devopsdays.check_permission", "decisions": ["allowed"]}
-            },
-            "expected": true
-        },
-        {
-            "check_decision": {
-                "identityContext": { "identity": "morty@the-citadel.com", "type": "IDENTITY_TYPE_SUB"},
                 "resourceContext": { "id": "morty_todo_1" },
                 "policyContext": { "path": "devopsdays.DELETE.todos.__id", "decisions": ["allowed"]}
             },

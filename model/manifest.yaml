@@ -3,19 +3,25 @@ model:
   version: 3
 
 types:
-  #  user represents a user that can be granted role(s)
+  #  user represents a user that can be granted access.
   user:
     relations:
+      # relation between a user and their manager.
       manager: user
 
+  # a user can have one or more identities (email, PID, phone, etc.)
   identity:
     relations:
+      # relation between an identity and the user it denotes.
       identifier: user
 
+  # a group of users or other groups.
   group:
     relations:
+      # relation between a group and its members.
       member: user | group#member
 
+  # an item on the todo list.
   todo:
     relations:
       owner:  user
@@ -26,5 +32,3 @@ types:
       view:   owner | editor | viewer
       edit:   owner | editor
       delete: owner
-
-
